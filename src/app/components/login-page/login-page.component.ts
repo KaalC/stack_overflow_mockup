@@ -36,7 +36,7 @@ export class LoginPageComponent implements OnInit {
 
   loginUser() {
     if ( this.loginForm.valid ) {
-      this.route.navigate(['/fdss']);
+      this.route.navigate(['/questions']);
     }
   }
 

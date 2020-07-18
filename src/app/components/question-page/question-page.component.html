@@ -1,0 +1,48 @@
+<div class="container full-height">
+    <div class="row">
+        <div class="col-sm-12 questions-container">
+            <div class="text-container mt-5 mb-4">
+                <h3>Top Questions</h3>
+            </div>
+            <div class="question-list-container">
+                <div *ngFor="let question of questionsList; let i as index">
+                    <div class="row question">
+                        <div class="col-sm-3">
+                            <div class="row text-center question-status">
+                                <div class="col-sm-4 votes">
+                                    <div class="status-counts" [title]='getTitleTextForStatus(question.score, "vote")'>{{question.score | modifyCount}}</div>
+                                    <div>{{question.score == 1 ? 'vote' : 'votes'}}</div>
+                                </div>
+                                <div class="col-sm-4 status" [class.answered]='question.answer_count != 0' [class.answered-accepted]='question.accepted_answer_id'>
+                                    <div class="status-counts" [title]='getTitleTextForStatus(question.answer_count, "answer")'>{{question.answer_count | modifyCount}}</div>
+                                    <div>{{question.answer_count == 1 ? 'answer' : 'answers'}}</div>
+                                </div>
+                                <div class="col-sm-4 views" [class.hot]='isHotQuestion(question.view_count)'>
+                                    <div class="status-counts" [title]='getTitleTextForStatus(question.view_count, "view")'>{{question.view_count | modifyCount}}</div>
+                                    <div>{{question.view_count == 1 ? 'view' : 'views'}}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div>
+                                <span *ngIf="question.bounty_amount" title="this question has an open bounty worth {{question.bounty_amount}} reputation" class="bounty-indicator">+{{question.bounty_amount}}</span>
+                                <a class="question-title" [routerLink]="['/questions',question.question_id]">{{question.title}}</a>
+                            </div>
+                            <div class="question-detial">
+                                <div class="tags-indicator">
+                                    <a class="btn btn-primary btn-sm" *ngFor="let tag of question.tags" [routerLink]="['/questions/tagged', tag]">{{tag}}</a>
+                                </div>
+                                <div class="modification-indicator">
+                                    <a [routerLink]="['/questions',question.question_id]" class="answered-detial">{{question.last_edit_date ? 'modified' : 'answered'}} <span [title]="(currentDateTimeLapse - ( question.last_edit_date ? question.last_edit_date : question.last_activity_date)) | date:'yyyy-MM-dd hh:mm:ss\'Z\''" class="relative-time">{{(question.last_edit_date ? question.last_edit_date : question.last_activity_date) | modifyDate }}</span></a>
+                                    <a [routerLink]="['/userprofile', question.owner.user_id]" class="user-name">{{question.owner.display_name}}</a>
+                                    <span class="user-reputation">{{question.owner.reputation | number}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-info mt-4 ml-3">Looking for more questions with bounties? Browse the <a [routerLink]="['/questions', {tab: 'bounty'}]">complete list</a>.</div>
+            </div>
+        </div>
+    </div>
+</div>

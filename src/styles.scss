@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+html,body {
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+
 .full-height {
     height: 100vh;
+}
+
+a, a:hover {
+    text-decoration: none;
 }
 
 /*************************************** Materials Icon *****************************/

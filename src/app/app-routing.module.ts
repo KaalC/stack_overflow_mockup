@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { QuestionPageComponent } from './components/question-page/question-page.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,10 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
+    path: 'questions',
+    component: QuestionPageComponent
+  },
+  {
     path: '**',
     component: PageNotFoundComponent
   }
@@ -25,3 +30,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const RoutedComponent = [ LoginPageComponent, QuestionPageComponent, PageNotFoundComponent]

@@ -36,15 +36,15 @@
                     <label for="rememberMe">Remember Me</label>
                 </span>
                 <span class="right">
-                    <a href="#">Forget Password?</a>
+                    <a [routerLink]="['/forgetpassword']">Forget Password?</a>
                 </span>
             </div>
             <div class="mt-3">
-                <button type="submit" class="btn btn-primary">Log in</button>
+                <button [disabled]='loginForm.invalid' type="submit" class="btn btn-primary">Log in</button>
             </div>
         </form>
             <div class="mt-1">
-                <span>Don’t have an account? <a href="#">Sign up</a></span>
+                <span>Don’t have an account? <a [routerLink]="['/signup']">Sign up</a></span>
             </div>
       </div>
     </div>
