@@ -78,6 +78,24 @@
         input:focus + label {
             color: #36a0f4;
         }
+
+        .error-msg {
+            position: absolute;
+            visibility: hidden;
+            width: 12rem;
+            left: 21.2rem;
+            top: .5rem;
+            background-color: #fff;
+            border: 1px solid #dc3545;;
+            border-radius: .5rem;
+            padding: .2rem;
+            color: #dc3545;
+            opacity: .8;
+        }
+
+        .error-visible:hover + .error-msg {
+            visibility: visible;
+        }
     }
 
     .floating-label:focus-within {
@@ -97,18 +115,19 @@
     
     .icon-field {
         width: 3.5rem;
-        padding: 1rem;
+        padding: .7rem;
         z-index: 2;
+        opacity: 0.5;
     }
     
     .icon-validate-field {
         top: 0;
         right: 0;
         width: 2.2rem;
-
-        i {
-            line-height: 3.1rem;
-        }
+        padding-top: 1rem;
+        padding-left: .5rem;
+        opacity: 0.8;
+        cursor: default;
     }
     
     .border-1 {
@@ -122,10 +141,6 @@
         text-align: left;
         padding: .4rem;
         margin-top: .6rem;
-
-        a{
-            text-decoration: none;
-        }
 
         .left {
 
@@ -144,6 +159,10 @@
             position: absolute;
             right: 0.4rem;
         }
+    }
+
+    a {
+        text-decoration: none;
     }
 } 
 
