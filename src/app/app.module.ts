@@ -7,13 +7,15 @@ import { AppRoutingModule, RoutedComponent } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModifyCountPipe } from './pipe/modify-count.pipe';
 import { ModifyDatePipe } from './pipe/modify-date.pipe';
+import { QuestionListComponent } from './components/question-list/question-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RoutedComponent,
     ModifyCountPipe,
-    ModifyDatePipe
+    ModifyDatePipe,
+    QuestionListComponent
   ],
   imports: [
     BrowserModule,

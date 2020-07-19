@@ -9,7 +9,7 @@ import { StackoverflowApiService } from 'src/app/services/stackoverflow-api.serv
 export class QuestionPageComponent implements OnInit {
 
   questionsList: any;
-  currentDateTimeLapse: number;
+  
   constructor(private stackOverFlowApi: StackoverflowApiService) { }
 
   ngOnInit(): void {
@@ -17,7 +17,6 @@ export class QuestionPageComponent implements OnInit {
       questList => this.handleQuestionRendering(questList),
       error => this.handleFetchError(error)
     );
-    this.currentDateTimeLapse = +new Date();
   }
 
   handleQuestionRendering(questList) {
@@ -27,13 +26,5 @@ export class QuestionPageComponent implements OnInit {
 
   handleFetchError(error) {
     console.log(error);
-  }
-
-  getTitleTextForStatus(count, text) {
-    return ( count + " " + text + ( count == 1 ? '' : 's' ) );
-  }
-
-  isHotQuestion(count) {
-    return Math.round(count/1000) > 0;
   }
 }

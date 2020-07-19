@@ -39,6 +39,7 @@
             transition: all .3s ease;
             font-weight: 400;
             font-size: smaller;
+            line-height: 0;
         }
         
         input {
@@ -72,7 +73,7 @@
             -webkit-transform: translateY(-10px);
                     transform: translateY(-10px);
             opacity: .7;
-            
+            line-height: 1.5;
         }
         
         input:focus + label {
