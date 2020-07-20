@@ -1,10 +1,10 @@
 .question {
     margin: 0;
     padding: 10px 0;
+    flex-wrap: nowrap;
     border-bottom: 1px solid rgb(239, 240, 241);
 
     .question-status-container {
-        width: auto;
         max-width: fit-content;
         padding: 0;
     }
@@ -20,6 +20,7 @@
 
     .question-status {
         font-size: 11px;
+        flex-wrap: nowrap;
     }
 
     .status-counts {
@@ -125,8 +126,13 @@
     }
 
     @media screen and (max-width: 768px) {
+        
+        .question-status {
+            margin: 0px;
+        }
+
         .question-status-container {
-            flex: auto;
+            margin: 0 0 4px 0;
         }
 
         .votes, .status, .views {
@@ -147,5 +153,21 @@
         .status-counts + div {
             line-height: 19px;
         }
+
+        .question-detial-container {
+            margin-left: 4px;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .question {
+        flex-direction: column;
+
+        .question-status-container .row {
+            margin: 0;
+        }
+    
     }
 }

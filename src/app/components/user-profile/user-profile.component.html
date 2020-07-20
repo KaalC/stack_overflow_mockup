@@ -1,0 +1,43 @@
+<div class="container user-profile-wrapper">
+    <div class="row">
+        <div class="col-sm-12 header mb-4"><h4>Profile</h4></div>
+        <div *ngIf='userData' class="col-sm-12 user-profile-container">
+            <div class="row user-basic-detial">
+                <div class="col-sm-6 col-md-4 col-lg-3 user-profile">
+                    <div class="card" style="width: 13rem;">
+                        <div class="card-body">
+                          <img [src]='userData.profile_image' alt="user-img" height="164" width="164">
+                          <p class="card-text rep text-center mt-2" title="reputation"><span class="rep-number">{{userData.reputation | number}}</span><span class="rep-text">{{'reputation' | uppercase}}</span></p>
+                          <div class="tags">
+                            <div class="badge gold" *ngIf="userData.badge_counts.gold > 0" title="{{userData.badge_counts.gold}} gold {{userData.badge_counts.gold == 1 ? 'badge' : 'badges'}}"><span class="material-icons">stop_circle</span>{{userData.badge_counts.gold | modifyCount}}</div>
+                            <div class="badge silver" *ngIf="userData.badge_counts.silver > 0" title="{{userData.badge_counts.silver}} silver {{userData.badge_counts.silver == 1 ? 'badge' : 'badges'}}"><span class="material-icons">stop_circle</span>{{userData.badge_counts.silver | modifyCount}}</div>
+                            <div class="badge bronze" *ngIf="userData.badge_counts.bronze > 0" title="{{userData.badge_counts.bronze}} bronze {{userData.badge_counts.bronze == 1 ? 'badge' : 'badges'}}"><span class="material-icons">stop_circle</span>{{userData.badge_counts.bronze | modifyCount}}</div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-8 col-lg-9 mt-2 user-detial">
+                    <div  class="user-name"><span class="material-icons">person</span>{{userData.display_name}}</div>
+                    <div class="user-location" *ngIf="userData.location"><span class="material-icons">place</span>{{userData.location}}</div>
+                    <div class="user-website" *ngIf="userData.website_url"><span class="material-icons">link</span><a [href]='userData.website_url'>My site</a></div>
+                </div>
+            </div>
+            <div class="row user-top-tags">
+                <div class="title">Top tags</div>
+                <div class="tags-wrapper">
+                    <div *ngFor="let tag of userTopTag">
+                        <div class="tag-container">
+                            <a class="btn btn-primary btn-sm" [routerLink]="['/user', {'tag': tag.tag_name}]">{{tag.tag_name}}</a>
+                            <span class="text">score</span>
+                            <span class="value">{{tag.answer_score | number}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row user-top-question">
+                <div class="title">Top Questions</div>
+                <app-question-list [quesList]='userTopQuestions'></app-question-list>
+            </div>
+        </div>
+    </div>
+</div>

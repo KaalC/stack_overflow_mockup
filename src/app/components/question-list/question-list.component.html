@@ -1,22 +1,22 @@
 <div *ngFor="let question of quesList">
     <div class="row question">
-        <div class="col-sm-3 question-status-container">
+        <div class="question-status-container">
             <div class="row text-center question-status">
-                <div class="col-sm-4 votes">
+                <div class="votes">
                     <div class="status-counts" [title]='getTitleTextForStatus(question.score, "vote")'>{{question.score | modifyCount}}</div>
                     <div>{{question.score == 1 ? 'vote' : 'votes'}}</div>
                 </div>
-                <div class="col-sm-4 status" [class.answered]='question.answer_count != 0' [class.answered-accepted]='question.accepted_answer_id'>
+                <div class="status" [class.answered]='question.answer_count != 0' [class.answered-accepted]='question.accepted_answer_id'>
                     <div class="status-counts" [title]='getTitleTextForStatus(question.answer_count, "answer")'>{{question.answer_count | modifyCount}}</div>
                     <div>{{question.answer_count == 1 ? 'answer' : 'answers'}}</div>
                 </div>
-                <div class="col-sm-4 views" [class.hot]='isHotQuestion(question.view_count)'>
+                <div class="views" [class.hot]='isHotQuestion(question.view_count)'>
                     <div class="status-counts" [title]='getTitleTextForStatus(question.view_count, "view")'>{{question.view_count | modifyCount}}</div>
                     <div>{{question.view_count == 1 ? 'view' : 'views'}}</div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-9 question-detial-container">
+        <div class="question-detial-container">
             <div class="question-heading">
                 <span *ngIf="question.bounty_amount" title="this question has an open bounty worth {{question.bounty_amount}} reputation" class="bounty-indicator">+{{question.bounty_amount}}</span>
                 <a class="question-title" [routerLink]="['/questions',question.question_id]">{{question.title}}</a>

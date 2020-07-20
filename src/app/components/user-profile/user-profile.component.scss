@@ -1,0 +1,179 @@
+.user-profile-wrapper {
+    border-left: 1px solid rgb(214, 217, 220);
+    border-right: 1px solid rgb(214, 217, 220);
+    padding: 4rem 2rem;
+    box-sizing: border-box;
+
+    .user-basic-detial {
+        .user-profile {
+            .card {
+                box-shadow: #eff0f1 0px 7rem 0px 0px inset;
+            }
+        }
+
+        .rep {
+            .rep-text, .rep-number {
+                margin: 2px;
+                display: inline-block;
+            }
+
+            .rep-text {
+                font-size: 11px;
+                line-height: 1rem;
+                vertical-align: middle;
+                color: rgb(106, 115, 124);
+            }
+        }
+
+        .tags {
+            display: flex;
+
+            div {
+                display: flex;
+                flex: 1 auto;
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+                min-width: 0;
+                padding: 0 6px;
+                border-width: 1px;
+                border-style: solid;
+                border-radius: 3px;
+                font-size: 12px;
+                font-weight: normal;
+                line-height: 2;
+                white-space: nowrap;
+                margin: 2px;
+            }
+
+            .badge.bronze {
+                border-color: rgb(171, 130, 95);
+                background-color:rgb(242, 233, 225);
+
+                .material-icons {
+                    color: rgb(171, 130, 95);
+                }
+            }
+
+            .badge.gold {
+                background-color: rgb(255, 244, 209);
+                border-color: rgb(241, 182, 0);
+
+                .material-icons {
+                    color: rgb(241, 182, 0);
+                }
+            }
+
+            .badge.silver {
+                background-color: rgb(232, 232, 232);
+                border-color: rgb(154, 156, 159);
+
+                .material-icons {
+                    color: rgb(154, 156, 159);
+                }
+            }
+
+            .material-icons {
+                font-size: 8px;
+                margin-right: 8px;
+                opacity: .8;
+            }
+        }
+
+        .user-detial {
+            color: rgb(60, 65, 70);
+            font-size: 14px;
+
+            .user-name {
+                font-size: 24px;
+                font-weight: 700;
+            }
+
+            .material-icons {
+                font-size: 18px;
+                vertical-align: middle;
+                margin-right: 4px;
+                opacity: .6;
+            }
+        }
+    }
+
+    .title {
+        border-bottom: 1px solid rgb(214, 217, 220);;
+        font-weight: 700;
+        width: 100%;
+        padding-bottom: 6px;
+    }
+
+    .user-top-tags, .user-top-question {
+        margin: 3rem 0 2rem;
+        padding-bottom: 6px;
+    }
+
+    .user-top-tags {
+
+        .title {
+            margin-bottom: 15px;
+        }
+
+        .tags-wrapper {
+            display: flex;
+            flex: 1 auto;
+            flex-wrap: wrap;
+
+            div {
+                display: flex;
+                align-items: center;
+                align-content: center;
+                justify-content: center;
+                min-width: 0;
+            }
+
+            .tag-container {
+                background-color: rgb(250, 250, 251);
+                padding: 8px;
+                margin: 0 8px 8px 0;
+
+                a {
+                    font-size: 15px;
+                    color: rgb(57, 115, 157);
+                    background-color: rgb(225, 236, 244);
+                    border-color: rgb(225, 236, 244);
+                    margin-right: 4rem;
+                    margin-bottom: 5px;
+                }
+    
+                a:hover {
+                    color: rgb(44, 87, 119);
+                    background-color: rgb(209, 229, 241);
+                }
+
+                .text {
+                    font-size: 11px;
+                    margin-right: 4px;
+                    text-transform: uppercase;
+                    font-weight: 700;
+                    color: rgb(145, 153, 161);
+                }
+
+                .value {
+                    font-size: 15px;
+                    color: rgb(60, 65, 70);
+                }
+            }
+        }
+    }
+
+    .user-top-question app-question-list {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 575px) {
+        .user-basic-detial {
+            text-align: center;
+        }
+        .card {
+            margin: auto;
+        }
+    }
+}
