@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StackoverflowApiService } from 'src/app/services/stackoverflow-api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { map, mergeMap } from 'rxjs/operators';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -22,22 +24,15 @@ export class UserProfileComponent implements OnInit {
     );
 
     if(this.userId) {
-      this._stackOverFlowApi.getUserProfileDetial(this.userId)
-        .subscribe(
-          data => this.handleUserData(data),
-          error => this.handleError(error)
-        );
-      
-      this._stackOverFlowApi.getUserTopTags(this.userId)
-        .subscribe(
-          data => this.handleUserTopTags(data),
-          error => this.handleError(error)
-      );
-
-      this._stackOverFlowApi.getUserTopQuestions(this.userId)
-        .subscribe(
-          data => this.handleUserTopQuestions(data),
-          error => this.handleError(error)
+      this._stackOverFlowApi.getUserProfileDetial(this.userId).pipe(
+        map((res1: any) => this.handleUserData(res1)),
+        mergeMap(() => forkJoin([this._stackOverFlowApi.getUserTopTags(this.userId), this._stackOverFlowApi.getUserTopQuestions(this.userId)]))
+      ).subscribe(
+        ([res2, res3]: [any, any]) => {
+          this.handleUserTopTags(res2);
+          this.handleUserTopQuestions(res3);
+        },
+        error => this.handleError(error)
       );
     }
   }
