@@ -22,7 +22,7 @@
                     <div class="user-website" *ngIf="userData.website_url"><span class="material-icons">link</span><a [href]='userData.website_url'>My site</a></div>
                 </div>
             </div>
-            <div class="row user-top-tags">
+            <div class="row user-top-tags" *ngIf="userTopTag?.length > 0">
                 <div class="title">Top tags</div>
                 <div class="tags-wrapper">
                     <div *ngFor="let tag of userTopTag">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row user-top-question">
+            <div class="row user-top-question" *ngIf="userTopQuestions?.length > 0">
                 <div class="title">Top Questions</div>
                 <app-question-list [quesList]='userTopQuestions'></app-question-list>
             </div>
