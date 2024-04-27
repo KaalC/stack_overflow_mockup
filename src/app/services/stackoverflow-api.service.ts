@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class StackoverflowApiService {
 
   constructor(private http: HttpClient) { }
 
-  getFeaturedQuestion() {
+  getFeaturedQuestion() : Observable<object> {
     return this.http.get(this._urlFeaturedQuestion);
   }
 
