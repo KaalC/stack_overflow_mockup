@@ -131,6 +131,6 @@
           "defaultConfiguration": "development"
         }
       }
-    }},
-  "defaultProject": "mockup-app"
+    }
+  }
 }
