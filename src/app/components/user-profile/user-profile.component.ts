@@ -23,7 +23,7 @@ export class UserProfileComponent implements OnInit {
       error => { console.log(error) }
     );
 
-    if(this.userId) {
+    if (this.userId) {
       this._stackOverFlowApi.getUserProfileDetial(this.userId).pipe(
         map((res1: any) => this.handleUserData(res1)),
         mergeMap(() => forkJoin([this._stackOverFlowApi.getUserTopTags(this.userId), this._stackOverFlowApi.getUserTopQuestions(this.userId)]))
@@ -38,21 +38,21 @@ export class UserProfileComponent implements OnInit {
   }
 
   handleUserData(data) {
-    if(data) {
+    if (data) {
       this.userData = data.items[0];
       console.log(this.userData);
     }
   }
 
   handleUserTopTags(data) {
-    if(data) {
+    if (data) {
       this.userTopTag = data.items;
       console.log(this.userTopTag);
     }
   }
 
   handleUserTopQuestions(data) {
-    if(data) {
+    if (data) {
       this.userTopQuestions = data.items;
       console.log(this.userTopQuestions);
     }

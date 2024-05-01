@@ -17,10 +17,10 @@ export class QuestionListComponent implements OnInit {
   }
 
   getTitleTextForStatus(count, text) {
-    return ( count + " " + text + ( count == 1 ? '' : 's' ) );
+    return (count + " " + text + (count == 1 ? '' : 's'));
   }
 
   isHotQuestion(count) {
-    return Math.round(count/1000) > 0;
+    return Math.round(count / 1000) > 0;
   }
 }

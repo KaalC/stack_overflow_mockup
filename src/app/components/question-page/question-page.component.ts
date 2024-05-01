@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { StackoverflowApiService } from 'src/app/services/stackoverflow-api.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-question-page',
@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class QuestionPageComponent implements OnInit {
 
   questionsList: any;
-  
+
   constructor(private stackOverFlowApi: StackoverflowApiService, private _router: Router) { }
 
   ngOnInit(): void {
