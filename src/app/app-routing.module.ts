@@ -40,4 +40,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const RoutedComponent = [ LoginPageComponent, QuestionPageComponent, UserProfileComponent, ErrorPageComponent, PageNotFoundComponent]
+export const RoutedComponent = [LoginPageComponent, QuestionPageComponent, UserProfileComponent, ErrorPageComponent, PageNotFoundComponent]

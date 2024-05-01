@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class LoginPageComponent implements OnInit {
 
   strTitle: string;
   strHeading: string;
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
 
   email() {
     return this.loginForm.get('email');
@@ -20,8 +20,8 @@ export class LoginPageComponent implements OnInit {
   password() {
     return this.loginForm.get('password');
   }
-  
-  constructor( private fb: FormBuilder, private route: Router) { }
+
+  constructor(private fb: UntypedFormBuilder, private route: Router) { }
 
   ngOnInit(): void {
     this.strTitle = 'Welcome to Stack overflow Mockup';
@@ -29,13 +29,13 @@ export class LoginPageComponent implements OnInit {
 
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.pattern('^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-]+)\\.([a-zA-Z]{2,})$')]],
-      password: ['', [Validators.required, Validators.minLength(6)] ],
+      password: ['', [Validators.required, Validators.minLength(6)]],
       rememberMe: ['']
     });
   }
 
   loginUser() {
-    if ( this.loginForm.valid ) {
+    if (this.loginForm.valid) {
       this.route.navigate(['/questions']);
     }
   }
